@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weather</title>
+	<link rel="stylesheet" href="./css/normalize.css">
+	<link rel="stylesheet" href="./css/main.css">
+</head>
+<body v-cloak>
+	<div id="app">
+	<!-- <div id="app" class="fixed-height"> -->
+		<header>
+			<div class="container">
+				<div class="wrap-header">
+					<div class="wrap-city-and-search">
+						<div class="wrap-search">
+							<form>
+								<div class="city-search">
+									<input type="text" placeholder="Введите город" class="city-search_input">
+									<button type="submit" class="city-search_btn">ОК</button>
+								</div>
+							</form>
+							<div class="search-results">
+								<div class="search-results_item">Краснодар 1</div>
+								<div class="search-results_item">Краснодар 2</div>
+								<div class="search-results_item">Краснодар 3</div>
+								<div class="search-results_item">Краснодар 4</div>
+								<div class="search-results_item">Краснодар 5</div>
+								<div class="search-results_item">Краснодар 6</div>
+								<div class="search-results_item">Краснодар 7</div>
+								<div class="search-results_item">Краснодар 8</div>
+							</div>
+						</div>
+						<div class="wrap-city">
+							<div class="current-city">Краснодар</div>
+							<div class="city-buttons">
+								<button class="btn city-buttons_btn">
+									<i class="bi bi-search"></i>
+									<span>Сменить город</span>
+								</button>
+								<button class="btn city-buttons_btn">
+									<i class="bi bi-geo-alt"></i>
+									<span>Мое местоположение</span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="wrap-units">
+						<div class="units">
+							<button class="btn units_btn active">C</button>
+							<button class="btn units_btn">F</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<div class="container">
+				<div class="weather">
+					<div class="weaher-icon">
+						<i class="bi bi-clouds-fill"></i>
+					</div>
+					<div class="weather-temp">
+						<span>23</span>
+						<span>º</span>
+					</div>
+				</div>
+				<div class="weather-about">Преимущественно солнечно</div>
+			</div>
+		</main>
+
+		<footer>
+			<div class="container">
+				<div class="wrap-statistic">
+					<ul class="statistic-list">
+						<li class="statistic-item">
+							<div class="item-title">Ветер</div>
+							<div class="item-value">5 м/c, западный</div>
+						</li>
+						<li class="statistic-item">
+							<div class="item-title">Давление</div>
+							<div class="item-value">752 мм рт. ст.</div>
+						</li>
+						<li class="statistic-item">
+							<div class="item-title">Влажность</div>
+							<div class="item-value">60%</div>
+						</li>
+						<li class="statistic-item">
+							<div class="item-title">Вероятность дождя</div>
+							<div class="item-value">10%</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<script>
+		document.querySelector('.city-buttons_btn:first-child').addEventListener('click', () => {
+			document.querySelector('.wrap-search').classList.toggle('show')
+			document.querySelector('.wrap-city').classList.toggle('hide')
+
+			// document.querySelector('#app').classList.remove('fixed-height')
+		})
+
+		document.querySelector('form').addEventListener('submit', (e) => {
+			e.preventDefault()
+			document.querySelector('.wrap-search').classList.toggle('show')
+			document.querySelector('.wrap-city').classList.toggle('hide')
+
+			// document.querySelector('#app').classList.add('fixed-height')
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+@font-face {
+   font-family: Lato;
+   src: url('../../assets/fonts/Lato-Regular.ttf') format('truetype');
+}
+
+:root {
+   --white-color: #fff;
+   --secondary-color: rgba(255, 255, 255, .6);
+   --blue-color: #498CEC;
+}
+
+:root[data-theme="dark"] {
+   --white-color: #e8e8e8;
+   --secondary-color: rgba(255, 255, 255, .6);
+   --blue-color: #383838;
+}
+
+$bk-lg: 800px;
+$bk-md: 768px;
+$bk-sm: 576px;
+$bk-xsm: 360px;
+
+html {
+   height: -webkit-fill-available;
+}
+
+body {
+   font-family: Lato, 'Arial', sans-serif;
+   background-color: var(--blue-color);
+   color: var(--white-color);
+}
+
+#app {
+	position: relative;
+	// transition: all .5s;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+
+   @media screen and (max-width: $bk-sm) {
+      justify-content: space-between;
+
+      & header {
+         padding-top: 20px;
+      }
+
+      & footer {
+         padding-bottom: 5px;
+      }
+   }
+}
+
+body,
+#app {
+   height: 100vh;
+   max-height: -webkit-fill-available;
+   min-height: -webkit-fill-available;
+}
+
+.container {
+   max-width: 1180px;
+   padding: 0 20px;
+   margin: 0 auto;
+}
+
+.btn {
+   border: 0;
+   background-color: transparent;
+   padding: 0;
+   cursor: pointer;
+}
+
+// scrollbar
+::-webkit-scrollbar {
+   width: 7px;
+   height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+   background: #bebebe;
+   border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+   background: var(--white-color);
+   border-radius: 8px;
+   box-shadow: inset 7px 10px 12px #f0f0f0;
+}
+
+
+// imports
+@import './loader';
+@import './header';
+@import './weather';
+@import './footer';
