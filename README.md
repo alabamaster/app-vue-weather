@@ -7,6 +7,8 @@ TO DO LIST:
 4. Пофиксить "живой поиск" на андроиде(на айфоне работает нормально)
 5. Пофиксить города в "живом поиске"
 
+Посмотреть в живую [тут](https://alabamaster.github.io/app-vue-weather/dist/)
+
 ## Project setup
 ```
 npm install
