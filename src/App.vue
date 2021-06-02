@@ -83,8 +83,8 @@ export default {
 				const data = await response.json();
 
 				if (!response || !data.location) {
-					this.currentCity = 'Краснодар'
-					this.dataUpdate(true)
+					this.currentCity = 'Краснодар';
+					this.dataUpdate();
 					alert("Не удалось получить данные о погоде, возможно ошибка в названии города");
 					throw "Не удалось получить данные о погоде, возможно ошибка в названии города";
 				}
