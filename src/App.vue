@@ -49,8 +49,11 @@ export default {
 			// if (this.appWeather) return this.currentCity;
 
 			try {
-				const response = await fetch("http://ip-api.com/json?lang=ru");
-				const data = await response.json();
+				const response = await fetch("https://csonelove.ru/api_weather.php");
+				// const data = await response.json();
+				const data = JSON.parse(await response.json())
+
+				// console.log(data);
 
 				if (!response || data.status !== "success") {
 					throw "Ошибка определения локации";
@@ -80,12 +83,12 @@ export default {
 				const data = await response.json();
 
 				if (!response || !data.location) {
-					this.currentCity = "Краснодар";
+					this.dataUpdate(true)
 					alert("Ошибка получения данные о погоде");
 					throw "Ошибка получения данные о погоде";
 				}
 
-				// console.log(data);
+				console.log(data);
 
 				return data;
 			} catch (error) {
@@ -113,7 +116,8 @@ export default {
 			const forecastday = weather.forecast.forecastday[0];
 			const nextHour = new Date(cur.last_updated_epoch * 1000).getHours()
 
-			const { chance_of_rain } = forecastday.hour.find(item => new Date(item.time_epoch * 1000).getHours() > nextHour)
+			const { chance_of_rain } = forecastday.hour.find(item => new Date(item.time_epoch * 1000).getHours() >= nextHour)
+			// console.log(forecastday.hour)
 			
 			return (this.appWeather = {
 				city: weather.location.name,
@@ -190,7 +194,7 @@ export default {
 	watch: {
 		appWeather() {
 			this.toggleThemeColor()
-		},
+		}
 	},
 };
 </script>

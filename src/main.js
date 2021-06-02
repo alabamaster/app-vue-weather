@@ -1,10 +1,8 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-// import store from "./store.js"
+import store from "./store/index.js" // автоматически ищет index.js в папке
 
 import "./styles/normalize.css";
 import "./styles/scss/main.scss";
 
-const app = createApp(App);
-// app.use(store)
-app.mount("#app");
+createApp(App).use(store).mount("#app");
