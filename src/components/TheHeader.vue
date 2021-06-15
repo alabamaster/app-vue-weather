@@ -6,21 +6,16 @@
 					<the-header-search-vue
 						:searchIsActive="searchIsActive"
 						:city-list="cityList"
-						:city="city"
 						@toggle-search="toggleSearch"
 						@change-city="changeCity"
 					></the-header-search-vue>
 					<the-header-city-vue
-						:city="city"
 						:searchIsActive="searchIsActive"
 						@toggle-search="toggleSearch"
-						@my-location="$emit('my-location')"
+						@my-location="$store.dispatch('api_getCityName')"
 					></the-header-city-vue>
 				</div>
-				<the-header-units-vue
-					:units="units"
-					@toggle-units="$emit('toggle-units')"
-				></the-header-units-vue>
+				<the-header-units-vue></the-header-units-vue>
 			</div>
 		</div>
 	</header>
@@ -37,7 +32,7 @@ export default {
 		TheHeaderSearchVue,
 		TheHeaderCityVue,
 	},
-	emits: ["toggle-units", "change-city", "my-location"],
+	emits: ["change-city", "my-location"],
 	props: {
 		weather: null,
 		units: {
@@ -62,7 +57,7 @@ export default {
 	},
 	computed: {
 		city() {
-			return !this.weather ? "Краснодар" : this.weather.city;
+			return !this.weather ? "Краснодар" : this.$store.getters.currentCity;
 		},
 	},
 };

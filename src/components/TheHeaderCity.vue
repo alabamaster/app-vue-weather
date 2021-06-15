@@ -1,6 +1,6 @@
 <template>
 	<div class="wrap-city" :class="{ hide: searchIsActive }">
-		<div class="current-city">{{ city }}</div>
+		<div class="current-city">{{ $store.getters.currentCity }}</div>
 		<div class="city-buttons">
 			<button class="btn city-buttons_btn" @click="$emit('toggle-search')">
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -21,7 +21,7 @@
 
 <script>
 export default {
-	props: ["city", "searchIsActive"],
+	props: ["searchIsActive"],
 	emits: ["toggle-search", "my-location"],
 };
 </script>

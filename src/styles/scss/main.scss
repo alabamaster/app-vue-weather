@@ -9,12 +9,14 @@
    --white-color: #fff;
    --secondary-color: rgba(255, 255, 255, .6);
    --blue-color: #498CEC;
+	--danger-color: #E74C3C;
 }
 
 :root[data-theme="dark"] {
    --white-color: #e8e8e8;
    --secondary-color: rgba(255, 255, 255, .6);
    --blue-color: #383838;
+	--danger-color: #E74C3C;
 }
 
 $bk-lg: 800px;
